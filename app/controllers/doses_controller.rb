@@ -14,6 +14,7 @@ class DosesController < ApplicationController
 
   # GET /doses/new
   def new
+    @cocktail = Cocktail.find(params[:cocktail_id])
     @dose = Dose.new
   end
 
@@ -26,9 +27,12 @@ class DosesController < ApplicationController
   def create
     @dose = Dose.new(dose_params)
 
+    @cocktail = Cocktail.find(params[:cocktail_id])
+    @dose.cocktail = @cocktail
+
     respond_to do |format|
       if @dose.save
-        format.html { redirect_to @dose, notice: 'Dose was successfully created.' }
+        format.html { redirect_to cocktail_path(@cocktail), notice: 'Dose was successfully created.' }
         format.json { render :show, status: :created, location: @dose }
       else
         format.html { render :new }
@@ -69,6 +73,6 @@ class DosesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dose_params
-      params.require(:dose).permit(:description)
+      params.require(:dose).permit(:description, :ingredient_id, :cocktail_id)
     end
 end
