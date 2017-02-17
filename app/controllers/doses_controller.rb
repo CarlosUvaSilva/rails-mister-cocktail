@@ -44,9 +44,10 @@ class DosesController < ApplicationController
   # PATCH/PUT /doses/1
   # PATCH/PUT /doses/1.json
   def update
+    @dose = Dose.find(params[:id])
     respond_to do |format|
       if @dose.update(dose_params)
-        format.html { redirect_to @dose, notice: 'Dose was successfully updated.' }
+        format.html { redirect_to cocktail_path(@dose.cocktail), notice: 'Dose was successfully updated.' }
         format.json { render :show, status: :ok, location: @dose }
       else
         format.html { render :edit }
@@ -58,9 +59,10 @@ class DosesController < ApplicationController
   # DELETE /doses/1
   # DELETE /doses/1.json
   def destroy
+    @dose = Dose.find(params[:id])
     @dose.destroy
     respond_to do |format|
-      format.html { redirect_to doses_url, notice: 'Dose was successfully destroyed.' }
+      format.html { redirect_to cocktail_path(@dose.cocktail), notice: 'Dose was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
