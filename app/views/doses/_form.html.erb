@@ -1,24 +1,10 @@
-<%= simple_form_for [@cocktail, @dose] do |f| %>
+<%= simple_form_for(@dose) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :description %>
   </div>
 
-  <!-- <div class="form-inputs">
-    <% array = [] %>
-    <% @ingredient = Ingredient.all %>
-    <% @ingredient.each do |i| %>
-    <% array << i.name %>
-    <% end %>
-    <%= f.input :ingredient, :collection => array %>
-  </div> -->
-
-
-
-  <div class="form-actions">
-    <%= f.association :ingredient %>
-  </div>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

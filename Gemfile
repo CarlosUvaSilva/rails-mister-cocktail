@@ -36,7 +36,6 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
-gem 'faker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
