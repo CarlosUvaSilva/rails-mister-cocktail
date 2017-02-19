@@ -1,21 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p> <%= link_to 'New Cocktail', new_cocktail_path %> </p>
+<h3> <%= link_to 'New Cocktail', new_cocktail_path %> </h3>
 
 
-  <% @cocktails.reverse.each do |cocktail| %>
+<div class="container">
 
-    <%= cocktail.name %>
-      <ul>
-      <% cocktail.doses.each do |d|%>
+      <div class="row">
+    <% @cocktails.each do |cocktail| %>
 
-      <li><%= d.ingredient.name %> -> <%= d.description %></li>
 
-      <% end %>
-      </ul>
+        <div class="col-xs-6 col-sm-6 cocktail-card">
+          <%= render 'cocktail', cocktail: cocktail %>
+        </div>
 
-    <p><%= link_to 'Edit', edit_cocktail_path(cocktail) %>
-    <%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-  <% end %>
+    <% end %>
+      </div>
 
-<%= link_to 'New Cocktail', new_cocktail_path %>
+
+</div>
