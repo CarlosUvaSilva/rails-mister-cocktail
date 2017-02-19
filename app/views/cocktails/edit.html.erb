@@ -1,14 +1,6 @@
 <h1>Editing Cocktail</h1>
 
 <%= render 'form', cocktail: @cocktail %>
-<div>
+
 <%= link_to 'Show', @cocktail %> |
 <%= link_to 'Back', cocktails_path %>
-</div>
-
-<div>
-<%= cl_image_tag @cocktail.photo, width: 500, height: 500, crop: :fill, :effect=>"sharpen" %>
-
-
-<%= image_tag @cocktail.photo.url(:bright_face) if @cocktail.photo.url %>
-</div>
