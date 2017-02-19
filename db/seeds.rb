@@ -14,7 +14,10 @@ end
 
 25.times do
   cock_name = "The " + Faker::Hipster.word + " " + drinks.sample + " of " + Faker::Hipster.word
-  cock = Cocktail.create(name: cock_name)
+  url = "https://unsplash.it/500/500/?random"
+  cock = Cocktail.new(name: cock_name)
+  cock.remote_photo_url = url
+  cock.save
   rand(2..6).times do
     ingr = Ingredient.order("RANDOM()").first
     dose_descr = Faker::Food.measurement + " of " + ingr.name
