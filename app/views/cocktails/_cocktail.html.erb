@@ -3,13 +3,14 @@
 
   <%= link_to edit_cocktail_path(cocktail) do %>
 
-    <%= image_tag cocktail.photo.url(:bright_face) if cocktail.photo.url %>
-    <%= cocktail.name %>
+
+    <%= image_tag cocktail.photo.url(:index) if cocktail.photo.url %>
+
+     <%= cocktail.name %>
+
 
   <% end %>
 
-  <p><%= link_to 'Edit', edit_cocktail_path(cocktail) %>
-  <%= link_to 'Destroy', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
 
 </div>

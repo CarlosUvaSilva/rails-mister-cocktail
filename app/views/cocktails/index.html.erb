@@ -3,13 +3,13 @@
 <h3> <%= link_to 'New Cocktail', new_cocktail_path %> </h3>
 
 
-<div class="container">
+<div class="container text-center">
 
       <div class="row">
-    <% @cocktails.each do |cocktail| %>
+    <% @cocktails.reverse.each do |cocktail| %>
 
 
-        <div class="col-xs-6 col-sm-6 cocktail-card">
+        <div class="col-xs-6 col-sm-4 cocktail-card">
           <%= render 'cocktail', cocktail: cocktail %>
         </div>
 

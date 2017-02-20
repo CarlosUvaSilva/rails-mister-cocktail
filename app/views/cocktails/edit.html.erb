@@ -1,14 +1,20 @@
 <h1>Editing Cocktail</h1>
 
+
+
+<div style="float: left">
+  <%= image_tag @cocktail.photo.url(:index) if @cocktail.photo.url %>
+</div>
+
+
+<div style="float: left">
 <%= render 'form', cocktail: @cocktail %>
-<div>
-<%= link_to 'Show', @cocktail %> |
-<%= link_to 'Back', cocktails_path %>
-</div>
 
 <div>
-<%= cl_image_tag @cocktail.photo, width: 500, height: 500, crop: :fill, :effect=>"sharpen" %>
-
-
-<%= image_tag @cocktail.photo.url(:bright_face) if @cocktail.photo.url %>
+  <%= link_to 'Show', @cocktail %> |
+  <%= link_to 'Back', cocktails_path %> |
+  <%= link_to 'Destroy', @cocktail, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
+
+</div>
+
